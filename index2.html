@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Điều kiện trong vue</title>
+  <script src="vue.js"></script>
+  <style>
+    .box-menu {
+      display: flex;
+      justify-items: flex-end;
+    }
+  </style>
+</head>
+<body>
+<div id="app1">
+  <p>You are doctor</p>
+  <p v-if="xacdinh"> Yes, I am</p>
+  <p v-else> No, I am teacher</p>
+  <button @click="xacdinh = !xacdinh">Change Condition</button>
+  <template v-if="xacdinh">
+    <div>Menu1</div>
+    <div>Menu1</div>
+    <div>Menu1</div>
+    <div>Menu1</div>
+    <div>Menu1</div>
+  </template>
+</div>
+
+<!--===========Detach vs v-show ==========-->
+<!--==============Duyet menu voi v-for ==============-->
+<hr>
+<div id="app2">
+  <div class="box-menu">
+    <div style="margin: 10px" v-for="item,index in menu">{{item}} - {{index}}</div>
+  </div>
+
+  <hr>
+  <div class="box-menu">
+    <template v-for="item1,index1 in menu">
+      <h3 style="margin: 10px">{{item1}}-{{index1}}</h3>
+    </template>
+  </div>
+  <hr>
+  <ul>
+    <li v-for="student in students">{{ student.name}} - {{student.age}} - {{student.class}}</li>
+  </ul>
+  <hr>
+  <ul>
+    <li v-for="student in students">
+      <a style="margin: 5px" v-for="(value,key) in student">{{key}}:{{value}}</a>
+    </li>
+  </ul>
+  <hr>
+  <div class="box-menu">
+    <div style="margin: 10px" v-for="item,index in menu" :key="menu">{{item}} - {{index}}</div>
+  </div>
+  <button @click="menu.push('test')">Add new item</button>
+  <input type="text" v-model="add">
+</div>
+<script src="ex2.js"></script>
+</body>
+</html>

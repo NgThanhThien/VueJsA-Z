@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="vue.js"></script>
+</head>
+<body>
+<!---->
+<div id="object">
+  <input type="text" v-on:input="changeValue">
+  <p v-html="testHtml"></p>
+  <h3 v-once>{{title}} - {{ showPost() }}</h3>
+  <p>{{dicription}}</p>
+  <a v-bind:href="linkfb">My Facebook</a>
+</div>
+<!--end-->
+<!--===================================-->
+<!--Lang nghe sự kiện v-on -->
+<div id="obj1">
+  <div v-on:mousemove="tinhToaDo">
+    <h1>Bấm nut để tăng giá trị</h1>
+    <p>{{ dem }}</p>
+    <span v-on:mousemove.stop="">Dung su kien</span>
+    <br>
+    <button v-on:click="tangGiaTri">Tăng</button>
+    <p>Tọa độ chuột : {{ x }} \ {{ y }}</p>
+    <input v-model="message" type="text">
+    <p>{{ message }}</p>
+  </div>
+</div>
+<script src="main.js"></script>
+</body>
+</html>
