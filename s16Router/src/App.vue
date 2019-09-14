@@ -1,17 +1,30 @@
 <template>
- <div class="container">
-   <div class="row">
-     <div class="col-md-6 offset-md-3">
-       <h1 class="text-center">Vue Router</h1>
-     </div>
-   </div>
- </div>
+  <div>
+    <app-header></app-header>
+
+  <div class="container mt-md-3">
+    <div class="row">
+      <div class="col-md-12 ">
+        <h1 class="text-center">Vue Router</h1>
+        <hr>
+        <router-view></router-view>
+      </div>
+    </div>
+  </div>
+  </div>
 </template>
 
 <script>
-export default {
+    import Headers from './components/layout/Header'
 
-}
+    export default {
+        data() {
+
+        },
+        components: {
+            appHeader: Headers
+        }
+    }
 </script>
 <style>
 
