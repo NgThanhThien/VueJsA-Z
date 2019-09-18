@@ -1,26 +1,27 @@
 <template>
   <div>
-    <h1>Thien Profile</h1>
-    <h2>UserID: {{ id }}</h2>
-    <button class="btn btn-outline-info" @click="backToHome">Back Home</button>
+    <h1>User Detail</h1>
+    <h5>UserID: {{ $route.params.id }}</h5>
+    <!--    <button class="btn btn-outline-info" @click="backToHome">Back Home</button>-->
+    <hr>
+    <router-link
+      tag="button"
+      class="btn btn-block btn-warning"
+      :to="{name: 'userEdit', params:{id: this.$route.params.id}, query:{ locate: 'vi', browser: 'chrome'}, hash:'#hello'}">
+      Edit User
+    </router-link>
   </div>
 </template>
 <script>
-  export default {
-      data(){
-          return{
-              id: this.$route.params.id
-          }
-      },
-      methods:{
-          backToHome(){
-              this.$router.push('/')
-          }
-      },
-      watch:{
-          '$route'(to,from){
-              this.id = to.params.id;
-          }
-      }
-  }
+    export default {
+        methods: {
+            backToHome() {
+                this.$router.push('/')
+            }
+        },
+        beforeRouteEnter(to, from, next) {
+            if (true) next();
+            else next(false);
+        }
+    }
 </script>

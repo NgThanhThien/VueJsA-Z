@@ -1,12 +1,10 @@
 <template>
   <div>
-    <app-header></app-header>
+    <router-view name="page-header"/>
 
   <div class="container mt-md-3">
     <div class="row">
       <div class="col-md-12 ">
-        <h1 class="text-center">Vue Router</h1>
-        <hr>
         <router-view></router-view>
       </div>
     </div>
@@ -15,7 +13,7 @@
 </template>
 
 <script>
-    import Headers from './components/layout/Header'
+
 
     export default {
         data() {
